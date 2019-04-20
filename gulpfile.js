@@ -27,8 +27,8 @@ gulp.task('server', function () {
 gulp.task('styles:compile', function () {
     return gulp.src('src/styles/main.scss')
         .pipe(sass({
-            outputStyle: 'compressed',
-            includePaths: require('node-normalize-scss').includePaths
+            includePaths: require('node-normalize-scss').with('other/path', 'another/path'),
+            outputStyle: 'compressed'
         }).on('error', sass.logError))
         .pipe(sourcemaps.init())
         .pipe(autoprefixer({
@@ -63,7 +63,7 @@ gulp.task('scripts', function (done) {
 
 /* ------------ Sprite ------------- */
 gulp.task('sprite', function (cb) {
-    const spriteData = gulp.src('source/images/icons/*.png').pipe(spritesmith({
+    const spriteData = gulp.src('src/images/icons/*.png').pipe(spritesmith({
         imgName: 'sprite.png',
         imgPath: '../images/sprite.png',
         cssName: 'sprite.scss'
