@@ -1,2 +1,9 @@
+@import "../../node_modules/css-reset-and-normalize/scss/reset-and-normalize";
+@import "global/fonts.scss";
+@import "global/mixins.scss";
+@import "global/base.scss";/* 
+@import "global/sprite.scss"; */
+
 @import "sections/header.scss";
-@import "normalize";
+
+@import "sections/footer.scss";

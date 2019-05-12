@@ -9,26 +9,31 @@
   "author": "Yevhen Oksenchuk",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "browser-sync": "^2.26.5",
+    "css-reset-and-normalize": "^2.0.1",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^5.0.3",
     "gulp-rename": "^1.4.0",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
     "gulp.spritesmith": "^6.9.0",
-    "node-normalize-scss": "^8.0.0",
     "rimraf": "^2.6.3"
   },
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YevhenOksenchuk/Veronina.git"
+    "url": "git+https://github.com/YevhenOksenchuk/my-gulp-4.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/YevhenOksenchuk/Veronina/issues"
+    "url": "https://github.com/YevhenOksenchuk/my-gulp-4/issues"
   },
-  "homepage": "https://github.com/YevhenOksenchuk/Veronina#readme"
+  "homepage": "https://github.com/YevhenOksenchuk/my-gulp-4#readme"
 }
