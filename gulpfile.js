@@ -32,6 +32,7 @@ gulp.task('styles:compile', function () {
     return gulp.src('src/styles/main.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
+            includePaths: require('node-normalize-scss').includePaths,
             outputStyle: 'compressed'
         }).on('error', sass.logError))
         .pipe(sourcemaps.init())
@@ -58,7 +59,7 @@ gulp.task('rigger', function (done) {
 
 /* -------------js------------ */
 gulp.task('scripts', () =>
-    gulp.src('src/scripts/**/*.js')
+    gulp.src('src/scripts/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel({
         presets: ['@babel/env']
