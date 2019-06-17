@@ -12,7 +12,6 @@ const spritesmith = require('gulp.spritesmith');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const imagemin = require('gulp-imagemin');
-const uglify = require('gulp-uglify');
 
 
 /* -------- Server  -------- */
@@ -65,7 +64,6 @@ gulp.task('scripts', () =>
         presets: ['@babel/env']
     }))
     .pipe(concat('all.js'))
-    .pipe(uglify())
     .pipe(rename('main.min.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js/'))
