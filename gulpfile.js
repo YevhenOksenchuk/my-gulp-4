@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const rigger = require('gulp-rigger');
 const rimraf = require('rimraf');
 const browserSync = require("browser-sync").create();
 const rename = require('gulp-rename');
@@ -12,6 +11,7 @@ const spritesmith = require('gulp.spritesmith');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const imagemin = require('gulp-imagemin');
+const pug = require('gulp-pug');
 
 
 /* -------- Server  -------- */
@@ -44,15 +44,14 @@ gulp.task('styles:compile', function () {
         .pipe(gulp.dest('build/css'));
 });
 
-/* ------------Rigger--------------- */
-gulp.task('rigger', function (done) {
-    gulp.src('src/template/main.html')
-        .pipe(sourcemaps.init())
-        .pipe(rigger())
+/* ------------pug--------------- */
+gulp.task('pug', function buildHTML() {
+    return gulp.src('src/templatePug/main.pug')
+        .pipe(pug({
+            // Your options in here.
+        }))
         .pipe(rename('index.html'))
-        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('build/'));
-    done()
 });
 
 
@@ -108,13 +107,13 @@ gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images'));
 
 /* ------------ Watchers ------------- */
 gulp.task('watch', function () {
-    gulp.watch('src/template/**/*.html', gulp.series('rigger'));
+    gulp.watch('src/templatePug/**/*.pug', gulp.series('pug'));
     gulp.watch('src/styles/**/*.scss', gulp.series('styles:compile'));
     gulp.watch('src/scripts/**/*.js', gulp.series('scripts'));
 });
 
 gulp.task('default', gulp.series(
     'clean',
-    gulp.parallel('rigger', 'styles:compile', 'scripts', 'sprite', 'copy'),
+    gulp.parallel('pug', 'styles:compile', 'scripts', 'sprite', 'copy'),
     gulp.parallel('watch', 'server')
 ));
