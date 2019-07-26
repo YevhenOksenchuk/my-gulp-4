@@ -36,7 +36,7 @@ gulp.task('styles:compile', function () {
         }).on('error', sass.logError))
         .pipe(sourcemaps.init())
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            overrideBrowserslist: ['last 2 versions'],
             cascade: false
         }))
         .pipe(rename('main.min.css'))
