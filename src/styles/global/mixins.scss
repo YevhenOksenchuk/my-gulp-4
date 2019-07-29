@@ -16,3 +16,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@mixin flex($direction, $justify, $align-items, $wrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align-items;
+    flex-wrap: $wrap;
+}
